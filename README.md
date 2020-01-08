@@ -1,24 +1,13 @@
 # Ready-To-Deploy Django, gunicorn, NGINX, Docker Application
-Getting a Django 3.0 app up in no time. In this project, gunicorn is used as a WSGI. NGINX is used as a reverse proxy server.
 
-## Premise
-I have seen one too many Dockerfile with unreadable code. Many code base out there have Docker setup so elaborately that it is unmodifiable. Here, I try to simplify Dockerfile and Docker Compose file as much as possible, so that more than one developer in a team will understand how it works.
+## Credit
+This repository is modified from the code created by [Watt Iamsuri](https://github.com/wiamsuri/django-gunicorn-nginx-docker).
 
 ## Getting Started
-Here is a script to install docker and docker-compose. After running these commands, exit from ssh and reconnect to the instance. This can be used in AWS Launch Config
-```
-#!/bin/bash
-sudo yum -y update
-sudo yum install -y docker
-sudo usermod -a -G docker $(whoami)
-sudo service docker start
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-```
 For Ubuntu
 ```
 sudo apt update
-sudo apt install -y docker.io
+sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo usermod -a -G docker $(whoami)
 sudo service docker start
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
