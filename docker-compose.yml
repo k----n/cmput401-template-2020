@@ -9,15 +9,22 @@ services:
       - django.env
     ports:
       - "8000:8000"
+    volumes:
+      - static_volume:/src/staticfiles
     command:
       "gunicorn --workers=2 --bind=0.0.0.0:8000 mysite.wsgi:application"
 
   nginx:
     image: nginx:1.17
     container_name: ngx
+    restart: always
     ports:
       - "80:80"
     volumes:
       - ./nginx:/etc/nginx/conf.d
+      - static_volume:/src/staticfiles
     depends_on:
       - app
+
+volumes:
+  static_volume:
