@@ -1,8 +1,8 @@
 version: "3"
 
 services:
-  devapp:
-    build: .
+  app:
+    build: app
     container_name: django-dev
     ports:
       - "8000:8000"
