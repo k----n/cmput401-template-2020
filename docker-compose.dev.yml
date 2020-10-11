@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  app:
+  app-dev:
     build: app
     container_name: django-dev
     ports:
